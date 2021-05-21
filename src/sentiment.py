@@ -186,7 +186,7 @@ def smoothed_plot(rolling_df, days_for_window, out):
     
 def create_out_dir(output_directory):
     '''
-    Create out directory if it doesn't exist in the data folder
+    Create out directory if it doesn't exist
     '''
     dirName = os.path.join(output_directory)
     if not os.path.exists(dirName):
