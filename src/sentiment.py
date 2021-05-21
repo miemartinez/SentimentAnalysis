@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 """
 Specify path to a csv file containing headlines from news articles, calculate sentiment scores for each headline, smooth the sentiment scores using a rolling average over one week and one month, respectively. Save output plots as png.
+
 Parameters:
     path: str <path-to-csv>, default = ../data/abcnews-date-text.csv
+    output: str <path-to-output>, default = ../out
+    n_headlines: int <number-of-headlines>
+    batch_size: int <batch-size>, default = 5000
 Usage:
-    sentiment.py -p <path-to-csv>
+    sentiment.py -p <path-to-csv> -o <path-to-output> -n <number-of-headlines> -b <batch-size>
 Example:
-    $ python3 sentiment.py -p ../data/ -f abcnews-date-text.csv
+    $ python3 sentiment.py -p ../data/abcnews-date-text.csv -o ../out -n 10000 -b 100
 ## Task
 - Calculate sentiment scores and save plot of smoothed sentiments using a rolling average over one week and month as png file.
 """
@@ -45,7 +49,7 @@ ap.add_argument("-n", "--n_headlines",
                 help= "Number of headlines")
 # batch size
 ap.add_argument("-b", "--batch_size", 
-                required = False,
+                default = 5000,
                 type = int,
                 help= "Batch_size")
 
@@ -65,10 +69,6 @@ def main(args):
     
     # batch size
     batch_size = args["batch_size"]
-    # if batch size is not defined
-    if batch_size == None:
-        # set to 5000
-        batch_size = 5000
     
     print(f"\n[INFO] Setting batch size to {batch_size}.")
     
@@ -160,7 +160,7 @@ def smoothed_plot(rolling_df, days_for_window, out):
     
     # defining the smoothed sentiment scores from the dataframe with date as index
     # and define the number of days for calculating the rolling average
-    smoothed_df = rolling_df.rolling(f"{days_for_window}d").mean()
+    smoothed_df = rolling_df.rolling(window = f"{days_for_window}d").mean()
     
     # output path and filename
     plot_save = os.path.join(out, f'news_sentiment_{save_time}.png')
