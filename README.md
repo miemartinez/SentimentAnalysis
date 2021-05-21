@@ -1,6 +1,7 @@
 # Sentiment Analysis
 ### Dictionary-based sentiment analysis with Python
 **This project was developed as part of the spring 2021 elective course Cultural Data Science - Language Analytics at Aarhus University.** <br>
+
 __Task:__ Perform dictionary-based sentiment analysis on a dataset of over a million headlines taken from the Australian news source ABC 
 and save plot of smoothed sentiments using a rolling average over one week and month as png file. <br>
 
@@ -53,8 +54,8 @@ __Example:__ <br>
 The code has been developed in Jupyter Notebook and tested in the terminal on Jupyter Hub on worker02. I therefore recommend cloning the Github repository to worker02 and running the scripts from there. 
 
 ### Results:
-The length of the span of the rolling average influences the smoothing. This is evident as the one-week rolling average fluctuates much more than the one-month rolling average. 
-In the former, there are a few values that are negative. However, in the one-month rolling average this is not the case. <br>
+The results of the sentiment analysis show that the one-week rolling average fluctuates much more than the one-month rolling average. This is because the span of the window for the rolling average influences the smoothing. Furthermore, in the one-week rolling average, there are a few values that are negative. However, in the one-month rolling average this is not the case. <br>
+
 Generally, the trajectories of the sentiment are quite linear without much increase or decrease. However, it does seem that there is a slight increase from 2012 to 2015. 
 The average sentiment then seems to decrease from 2015 to 2019, after which it increases slightly again. However, overall, the sentiments of the news headlines are positive. 
 In the beginning of both plots, there are outliers. I am not exactly sure why they occur, but I believe it might have something to do with the window of the rolling average which take observations before and after the datapoint. 
