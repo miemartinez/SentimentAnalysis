@@ -56,6 +56,11 @@ The code has been developed in Jupyter Notebook and tested in the terminal on Ju
 ### Results:
 The results of the sentiment analysis show that the one-week rolling average fluctuates much more than the one-month rolling average. This is because the span of the window for the rolling average influences the smoothing. Furthermore, in the one-week rolling average, there are a few values that are negative. However, in the one-month rolling average this is not the case. <br>
 
+
+![alt text](https://github.com/miemartinez/SentimentAnalysis/blob/main/out/news_sentiment_week.png?raw=true)
+
+![alt text](https://github.com/miemartinez/SentimentAnalysis/blob/main/out/news_sentiment_month.png?raw=true)
+
 Generally, the trajectories of the sentiment are quite linear without much increase or decrease. However, it does seem that there is a slight increase from 2012 to 2015. 
 The average sentiment then seems to decrease from 2015 to 2019, after which it increases slightly again. However, overall, the sentiments of the news headlines are positive. 
 In the beginning of both plots, there are outliers. I am not exactly sure why they occur, but I believe it might have something to do with the window of the rolling average which take observations before and after the datapoint. 
